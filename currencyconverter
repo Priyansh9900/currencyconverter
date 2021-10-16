@@ -1,0 +1,14 @@
+with open('exchangerates.txt') as ex:
+    info = ex.readlines()
+
+currencyvalue = {}
+print('which currencies you want to compare: \n')
+for line in info:
+    parsed = line.split('\t')
+    currencyvalue[parsed[0]] = parsed[1]
+    print(parsed[0])
+while True:
+    currency1 = input('1st currency :  ')
+    currency2 = input('2nd currency :  ')
+    result = (float(currencyvalue[currency2]))/(float(currencyvalue[currency1]))
+    print(f'1 {currency1} = {result} {currency2}')
